@@ -1,9 +1,17 @@
 // components/HomeProperties.jsx
-import properties from '@/properties.json'
+// import properties from '@/properties.json'
 import PropertyCard from './PropertyCard'
 import Link from 'next/link'
-const HomeProperties = () => {
-  const recentProperties = properties.slice(0, 3)
+import connectDB from '@/config/database'
+import Property from '@/models/Property'
+
+const HomeProperties = async () => {
+  connectDB()
+  const properties = JSON.parse(JSON.stringify(await Property.find({}).lean()))
+  // const recentProperties = properties.slice(0, 3)
+  // const recentProperties = properties.sort({ createdAt: -1 }).limit(3).lean()
+  const recentProperties = await Property.find({}).sort({ createdAt: -1 }).limit(3).lean();
+
   return (
     <>
       <section className='px-4 py-6'>

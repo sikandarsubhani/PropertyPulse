@@ -1,14 +1,18 @@
 // app/properties/page.jsx
 
-import properties from '@/properties.json'
-import connectDB from '@/config/database'
+// import properties from '@/properties.json'
+import connect from '@/config/database'
 import Property from '@/models/Property'
 import PropertyCard from '@/components/PropertyCard'
 
+
 const PropertiesPage = async () => {
-  await connectDB()
-  const properties = await Property.find({}).lean()
-  console.log(properties)
+  connect()
+  // const db = await connectDB()
+  // console.log(db)
+
+  const properties = JSON.parse(JSON.stringify(await Property.find({}).lean()))
+  // console.log(properties)
   return (
     <section className='px-4 py-6'>
       <div>

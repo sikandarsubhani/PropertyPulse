@@ -1,5 +1,5 @@
 // components/PropertyCard.jsx
-'use client'
+// 'use client'
 import Image from "next/image"
 import Link from "next/link"
 import { FaBed, FaBath, FaMapMarker, FaRulerCombined, FaMoneyBill } from "react-icons/fa"
@@ -16,7 +16,8 @@ const PropertyCard = ({ property }) => {
 
   }
   return (
-    <div className="rounded-xl shadow-md relative">
+    // {transition-ease duration-100 hover:scale-110}
+    <div className="rounded-xl shadow-md relative shadow-xl ">
       <Image
         src={`/images/properties/${property.images[0]}`}
         alt=""
