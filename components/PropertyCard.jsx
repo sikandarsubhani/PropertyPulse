@@ -3,6 +3,8 @@
 import Image from "next/image"
 import Link from "next/link"
 import { FaBed, FaBath, FaMapMarker, FaRulerCombined, FaMoneyBill } from "react-icons/fa"
+
+
 const PropertyCard = ({ property }) => {
   const getRateDisplay = () => {
     const { rates } = property
@@ -17,9 +19,9 @@ const PropertyCard = ({ property }) => {
   }
   return (
     // {transition-ease duration-100 hover:scale-110}
-    <div className="rounded-xl shadow-md relative shadow-xl ">
+    <div className="rounded-xl shadow-md relative ">
       <Image
-        src={`/images/properties/${property.images[0]}`}
+        src={property.images[0]}
         alt=""
         width='0'
         height='0'

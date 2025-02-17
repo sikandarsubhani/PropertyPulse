@@ -6,13 +6,14 @@ import PropertyHeaderImage from '@/components/PropertyHeaderImage'
 import Link from 'next/link'
 import { FaArrowLeft } from 'react-icons/fa'
 import PropertyDetails from '@/components/PropertyDetails'
+import PropertyImages from '@/components/PropertyImages'
 // import { useRouter, useParams, useSearchParams, usePathname } from 'next/navigation'
 
 const PropertyPageId = async ({ params }) => {
   // console.log(params)
   await connectDB()
   const property = await Property.findById(params.id)
-  console.log(property);
+  // console.log(property);
 
   // if (!property) return <p>Property not found</p>
   return (
@@ -36,6 +37,7 @@ const PropertyPageId = async ({ params }) => {
           </div>
         </div>
       </section>
+      <PropertyImages images={property.images} />
     </>
   )
 }
