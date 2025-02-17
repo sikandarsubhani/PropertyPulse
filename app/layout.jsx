@@ -3,6 +3,7 @@ import React from 'react'
 import '@/assets/styles/globals.css'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
+import AuthProviders from '@/components/AuthProviders'
 export const metadata = {
   title: 'Property Pulse',
   keywords: 'rental property,real estate',
@@ -10,13 +11,15 @@ export const metadata = {
 }
 const MainLayout = ({ children }) => {
   return (
-    <html>
-      <body>
-        <Navbar />
-        {children}
-        <Footer />
-      </body>
-    </html>
+    <AuthProviders>
+      < html >
+        <body>
+          <Navbar />
+          {children}
+          <Footer />
+        </body>
+      </html >
+    </AuthProviders>
   )
 
 }
