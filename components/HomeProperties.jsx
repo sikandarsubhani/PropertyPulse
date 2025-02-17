@@ -7,7 +7,7 @@ import Property from '@/models/Property'
 
 const HomeProperties = async () => {
   connectDB()
-  const properties = JSON.parse(JSON.stringify(await Property.find({}).lean()))
+  // const properties = JSON.parse(JSON.stringify(await Property.find({}).lean()))
   // const recentProperties = properties.slice(0, 3)
   // const recentProperties = properties.sort({ createdAt: -1 }).limit(3).lean()
   const recentProperties = await Property.find({}).sort({ createdAt: -1 }).limit(3).lean();
@@ -17,7 +17,7 @@ const HomeProperties = async () => {
       <section className='px-4 py-6'>
         <div className='container-xl lg:container n-auto px-4 py-6'>
           <h2 className='text-3xl font-bold text-blue-900 mb-6'>Recent Properties</h2>
-          {properties.length === 0 ? ('No Properties Found') : (
+          {recentProperties.length === 0 ? ('No Properties Found') : (
             <div className='grid grid-cols-1 md:grid-cols-3 gap-6'>
               {
                 recentProperties.map((property) => (
