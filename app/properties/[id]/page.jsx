@@ -1,3 +1,5 @@
+// app/properties/[id]/page.jsx
+// \Users\navee\Desktop\sikandar\Coding\property_pulse\app\properties\[id]\page.jsx
 // // app/properties/[...id]/page.jsx
 // // 'use client'
 import connectDB from '@/config/database'
@@ -7,7 +9,10 @@ import Link from 'next/link'
 import { FaArrowLeft } from 'react-icons/fa'
 import PropertyDetails from '@/components/PropertyDetails'
 import PropertyImages from '@/components/PropertyImages'
-// import { useRouter, useParams, useSearchParams, usePathname } from 'next/navigation'
+import BookmarkButton from '@/components/BookmarkButton'
+import ShareButtons from '@/components/ShareButtons'
+import PropertyContactForm from '@/components/PropertyContactFrom'
+
 
 const PropertyPageId = async ({ params }) => {
   // console.log(params)
@@ -34,6 +39,12 @@ const PropertyPageId = async ({ params }) => {
         <div className="container m-auto py-10 px-6">
           <div className="grid grid-cols-1 md:grid-cols-70/30 w-full gap-6">
             <PropertyDetails property={property} />
+            {/* <!-- Sidebar --> */}
+            <aside className='space-y-4'>
+              <BookmarkButton property={property} />
+              <ShareButtons property={property} />
+              <PropertyContactForm property={property} />
+            </aside>
           </div>
         </div>
       </section>
