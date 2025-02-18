@@ -1,3 +1,4 @@
+// utils/AuthOptions.js
 // utils/authoptions.js
 import GoogleProvider from 'next-auth/providers/google'
 import connectDB from '@/config/database'
